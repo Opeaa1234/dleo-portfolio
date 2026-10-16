@@ -16,6 +16,23 @@
     .roadmap{display:grid;gap:12px}.milestone{display:grid;grid-template-columns:14px 1fr;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:17px}.dot{width:11px;height:11px;border-radius:50%;background:var(--blue);margin-top:8px;box-shadow:0 0 0 5px #e6eeff}.milestone h3{margin:0 0 4px;font-size:1rem}.milestone p{margin:0;color:var(--muted)}.milestone .tag{margin-top:9px}.note{font-size:.9rem;color:var(--muted);margin-top:12px}
     .callout{background:linear-gradient(135deg,#e8efff,#f8faff);border:1px solid #d4e0fb;border-radius:18px;padding:24px}.callout p{color:#435574;margin-bottom:0}.footer{background:var(--navy);color:#d8e3fa;padding:28px 20px}.footer-inner{max-width:1080px;margin:auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.footer a{color:#fff}.small{font-size:.9rem;color:#aebfe0}
     body.dark{--paper:#0b1220;--ink:#edf2ff;--muted:#a8b5cc;--line:#27354c;--card:#121e32}.dark .card-icon{background:#1f3151}.dark .tag{background:#253651;color:#d8e5ff}.dark .tag.blue{background:#203c78;color:#dbe6ff}.dark .callout{background:#13223b;border-color:#29446f}.dark .callout p{color:#c2d0e7}
+    /* Readable light theme; the game gallery keeps its intentional dark styling. */
+    body.light-theme{--ink:#17233b;--muted:#61708a;--paper:#f5f7fb;--line:#dfe6f1;--card:#fff;background:linear-gradient(140deg,#f7f9ff,#eaf0fb 48%,#f8faff);color:var(--ink);animation:none}
+    .light-theme .card{background:#fff;border-color:var(--line);box-shadow:0 8px 26px #17233b0d}
+    .light-theme .card p,.light-theme .section-intro{color:var(--muted)}
+    .light-theme .card-icon{background:#e9f0ff;box-shadow:none}
+    .light-theme .tag{background:#edf2fb;color:#3b5075}.light-theme .tag.blue{background:#e6eeff;color:#2455c8}
+    .light-theme .milestone{background:#fff;border-color:var(--line)}
+    .light-theme .callout{background:linear-gradient(135deg,#e8efff,#f8faff);border-color:#d4e0fb;box-shadow:none}
+    .light-theme .callout p{color:#435574}
+    .light-theme .section#games .card{background:rgba(12,27,54,.88);border-color:#36527e}
+    .light-theme .section#games .card p{color:#c6d5ef}
+    .light-theme .section#games .card-icon{background:#233e6b}
+    .light-theme .section#games .tag{background:#263d62;color:#e3edff}
+    .light-theme .section#games .tag.blue{background:#214b9b;color:#fff}
+    .light-theme .section#games .card-link{color:#a9caff}
+    .light-theme .section#games .tracker input,.light-theme .section#games .tracker textarea{background:#0b1931;color:#f3f6ff;border-color:#425a80}
+    .light-theme .section#games .tracker-status{color:#b7c9e7}
     @media(max-width:760px){.navlinks{display:none;position:absolute;top:58px;left:0;right:0;background:var(--navy);padding:16px 20px 20px;flex-direction:column;align-items:flex-start;border-top:1px solid #304363}.navlinks.open{display:flex}.menu-toggle{display:block}.hero{padding:58px 20px 64px}.grid{grid-template-columns:1fr}.section-head{display:block}.section{padding:29px 0}.card{padding:19px}.footer-inner{display:block}.footer-inner>*{margin-bottom:8px}}
     @media(max-width:760px){.section#games{padding:25px 14px;border-radius:18px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
@@ -124,7 +141,22 @@
       navItems.forEach(item=>item.removeAttribute('aria-current'));
       if(active)active.setAttribute('aria-current','location');
     });
-    document.getElementById('themeBtn').addEventListener('click',()=>{document.body.classList.toggle('dark');});
+    const themeBtn=document.getElementById('themeBtn');
+    function applyTheme(theme){
+      const light=theme==='light';
+      document.body.classList.toggle('light-theme',light);
+      themeBtn.textContent=light?'☀':'☾';
+      themeBtn.setAttribute('aria-pressed',String(light));
+      themeBtn.setAttribute('aria-label',light?'Switch to dark theme':'Switch to light theme');
+    }
+    let savedTheme=null;
+    try{savedTheme=localStorage.getItem('dleo.theme');}catch(e){}
+    applyTheme(savedTheme==='light'?'light':'dark');
+    themeBtn.addEventListener('click',()=>{
+      const nextTheme=document.body.classList.contains('light-theme')?'dark':'light';
+      applyTheme(nextTheme);
+      try{localStorage.setItem('dleo.theme',nextTheme);}catch(e){}
+    });
     document.getElementById('year').textContent=new Date().getFullYear();
     // Private, lightweight tracker: data stays in this browser and is not sent to a server.
     const trackerFields={poolNote:{key:"dleo.poolNote",type:"text"},candyLevel:{key:"dleo.candyLevel",type:"number"},candyGoal:{key:"dleo.candyGoal",type:"text"}};
