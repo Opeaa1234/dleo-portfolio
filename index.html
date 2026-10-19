@@ -43,7 +43,7 @@ main{max-width:1000px;margin:auto;padding:24px 20px 60px}.section{padding:34px 0
 </div></div></section>
 <section class="section" id="roadmap"><div class="eyebrow">Keep it simple</div><h2>Roadmap</h2><p class="intro">A short list of next steps — not a long collection of promises.</p><div class="roadmap">
 <div class="milestone"><span class="dot"></span><div><h3>Portfolio foundation</h3><p>Responsive layout, navigation, theme toggle, and project overview.</p></div></div>
-<div class="milestone"><span class="dot"></span><div><h3>Test the phone preview</h3><p>Check links, theme switching, menus, and local trackers in JAScript on your device.</p></div></div>
+<div class="milestone"><span class="dot"></span><div><h3>Test the phone preview</h3><p>Check links, theme switching, menus, and local trackers in JavaScript on your device.</p></div></div>
 <div class="milestone"><span class="dot"></span><div><h3>Improve DLeo itself</h3><p>Test diagnostic accuracy and edge cases in the underlying tool separately from this portfolio.</p></div></div>
 </div><p class="note">This portfolio is separate from the DLeo software. Editing this page does not change the underlying tool.</p></section>
 <section class="section" id="about"><div class="callout"><div class="eyebrow">About this page</div><h2>Built to be clear</h2><p>This is the simple public preview: a small project showcase, DLeo overview, game gallery, and short roadmap. Bigger ideas can wait until the core page is tested and stable.</p><div class="actions"><a class="btn primary" style="background:var(--accent);color:#07152c;border-color:var(--accent)" href="#home">Back to top ↑</a></div></div></section>
@@ -66,6 +66,8 @@ function read(key){try{return localStorage.getItem(key)}catch(e){return null}}
 function write(key,value){try{localStorage.setItem(key,value);return true}catch(e){return false}}
 function remove(key){try{localStorage.removeItem(key);return true}catch(e){return false}}
 Object.entries(fields).forEach(([id,key])=>{const value=read(key);if(value!==null)document.getElementById(id).value=value});
+if(read(fields.poolNote)!==null)document.getElementById('poolStatus').textContent='Saved note loaded from this browser.';
+if(read(fields.candyLevel)!==null||read(fields.candyGoal)!==null)document.getElementById('candyStatus').textContent='Saved tracker loaded from this browser.';
 function save(ids,statusId){const ok=ids.map(id=>write(fields[id],document.getElementById(id).value)).every(Boolean);document.getElementById(statusId).textContent=ok?'Saved on this device in this browser.':'Browser storage is unavailable; keep a separate backup.'}
 function clear(ids,statusId){ids.forEach(id=>document.getElementById(id).value='');const ok=ids.map(id=>remove(fields[id])).every(Boolean);document.getElementById(statusId).textContent=ok?'Tracker data cleared from this browser.':'Fields cleared, but browser storage could not be updated.'}
 document.getElementById('savePool').addEventListener('click',()=>save(['poolNote'],'poolStatus'));
