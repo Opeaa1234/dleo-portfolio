@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1730">
+<meta name="description" content="DLeo development roadmap: practical priorities for the portfolio and Bug Detective project.">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DLeo Roadmap">
+<meta property="og:description" content="A transparent list of DLeo's next development priorities.">
+<title>DLeo Roadmap | Development priorities</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%230b1730%22/%3E%3Ctext x=%2232%22 y=%2245%22 font-size=%2242%22 font-weight=%22900%22 text-anchor=%22middle%22 fill=%22%23a9c7ff%22%3ED%3C/text%3E%3C/svg%3E">
+<style>
+:root{color-scheme:dark;--bg:#081225;--panel:#101f38;--panel2:#142746;--text:#f4f7ff;--muted:#b6c4dc;--line:#2a4062;--accent:#9bbcff;--link:#b5ceff}
+:root.light{color-scheme:light;--bg:#f4f7fc;--panel:#fff;--panel2:#edf3fc;--text:#17243c;--muted:#5c6c86;--line:#dbe4f1;--accent:#2458bf;--link:#2458bf}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}a{color:inherit}:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+header{border-bottom:1px solid var(--line);background:var(--bg)}nav,.wrap{max-width:920px;margin:auto;padding:15px 20px}nav{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.brand{font-size:1.25rem;font-weight:900;text-decoration:none;letter-spacing:-.04em}.brand span{color:var(--accent)}.navlinks{display:flex;gap:16px;flex-wrap:wrap}.navlinks a{text-decoration:none;color:var(--muted)}.navlinks a:hover,.link{color:var(--link)}button,.btn{border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--text);padding:9px 13px;cursor:pointer;text-decoration:none;font-weight:650}.hero{border-bottom:1px solid var(--line);background:linear-gradient(140deg,var(--panel),var(--bg))}.hero .wrap{padding-top:48px;padding-bottom:42px}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}h1{font-size:clamp(2.25rem,7vw,4rem);line-height:1.08;letter-spacing:-.05em;margin:.35em 0}h2{letter-spacing:-.03em;line-height:1.2}.intro{color:var(--muted);max-width:720px}.section{padding:28px 0}.items{display:grid;gap:14px;margin:22px 0}.item{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:18px;display:grid;grid-template-columns:auto 1fr;gap:14px}.num{display:grid;place-items:center;border:1px solid var(--line);border-radius:10px;background:var(--panel2);width:40px;height:40px;color:var(--accent);font-weight:900}.item h3{margin:0 0 5px}.item p{margin:0;color:var(--muted)}.tag{display:inline-block;margin-top:10px;border:1px solid var(--line);border-radius:999px;padding:2px 9px;color:var(--muted);font-size:.8rem}.callout{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}footer{border-top:1px solid var(--line);color:var(--muted);font-size:.9rem;margin-top:30px}footer .wrap{padding-top:20px;padding-bottom:25px}@media(max-width:520px){nav,.wrap{padding-left:16px;padding-right:16px}.navlinks{gap:12px}.item{padding:14px}}
+</style>
+</head>
+<body>
+<header><nav aria-label="Main navigation"><a class="brand" href="index.html">DLeo<span>.</span></a><div class="navlinks"><a href="index.html#projects">Home</a><a href="projects.html">Projects</a><a href="bug-detective.html">Bug Detective</a></div><button id="themeBtn" type="button" aria-pressed="false" aria-label="Switch to light theme">☼ Theme</button></nav></header>
+<main>
+<section class="hero"><div class="wrap"><div class="eyebrow">Build with purpose</div><h1>Development roadmap.</h1><p class="intro">A practical view of what comes next for DLeo. These are priorities, not promises: each item will be marked as complete only after it is built and checked.</p><a class="btn" href="projects.html">← Back to project directory</a></div></section>
+<section class="section wrap"><div class="eyebrow">Priorities</div><h2>What comes next</h2><div class="items">
+<article class="item"><div class="num">01</div><div><h3>Keep the public site dependable</h3><p>Maintain working page links, readable layouts, accessible controls, and reliable GitHub Pages publishing as the portfolio grows.</p><span class="tag">Ongoing</span></div></article>
+<article class="item"><div class="num">02</div><div><h3>Make Bug Detective's scope clear</h3><p>Document which checks are actually implemented, what evidence they return, and which ideas remain planned. Avoid claims that imply a complete security audit.</p><span class="tag">Documentation and verification</span></div></article>
+<article class="item"><div class="num">03</div><div><h3>Build useful diagnostics in small steps</h3><p>Prioritize safe, permission-based checks with understandable results, clear limitations, and no disruptive testing or access-control bypasses.</p><span class="tag">Planned</span></div></article>
+<article class="item"><div class="num">04</div><div><h3>Improve project presentation</h3><p>Keep the homepage concise while using dedicated pages for project details, progress, and future releases.</p><span class="tag">Ongoing</span></div></article>
+<article class="item"><div class="num">05</div><div><h3>Protect visitor privacy</h3><p>Keep browser-only trackers clearly labelled, explain local storage, and avoid collecting personal information without a real need.</p><span class="tag">Ongoing</span></div></article>
+</div><div class="callout"><strong>Current status</strong><p class="intro">This roadmap is a planning page. It does not mean every listed improvement is already implemented. Check the individual project notes for scope and limitations.</p><p><a class="link" href="bug-detective.html">Read Bug Detective project notes →</a></p><p><a class="link" href="https://github.com/Opeaa1234/dleo-portfolio" target="_blank" rel="noopener noreferrer">View the source repository ↗</a></p></div></section>
+</main>
+<footer><div class="wrap">DLeo · Personal portfolio and project notes</div></footer>
+<script>
+(()=>{const root=document.documentElement,btn=document.getElementById('themeBtn');let saved=null;try{saved=localStorage.getItem('dleo.theme')}catch{}const preferred=saved||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');function setTheme(theme){root.classList.toggle('light',theme==='light');btn.setAttribute('aria-pressed',String(theme==='light'));btn.setAttribute('aria-label',theme==='light'?'Switch to dark theme':'Switch to light theme');btn.textContent=theme==='light'?'☾ Theme':'☼ Theme'}setTheme(preferred);btn.addEventListener('click',()=>{const next=root.classList.contains('light')?'dark':'light';setTheme(next);try{localStorage.setItem('dleo.theme',next)}catch{}})})();
+</script>
+</body>
+</html>
