@@ -34,5 +34,7 @@ DLeo Bug Detective is described as an evolving project, not a complete security 
 
 ## Project structure
 
-- `index.html` — the complete portfolio page
+- `index.html` — the portfolio homepage
+- `projects.html` — the project directory
+- `bug-detective.html` — Bug Detective scope, limitations, and development notes
 - `README.md` — this guide
