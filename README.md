@@ -1,6 +1,6 @@
 # DLeo Portfolio
 
-A lightweight, mobile-friendly portfolio for DLeo projects and gaming interests. The site is intentionally kept in a single `index.html` file with no build step or third-party JavaScript dependencies.
+A lightweight, mobile-friendly portfolio for DLeo projects and gaming interests. The site uses standalone HTML pages with no build step or third-party JavaScript dependencies.
 
 ## Preview locally
 
@@ -23,7 +23,8 @@ If Pages is already enabled, commits to the configured branch/folder can update 
 - Responsive layout and mobile navigation
 - Light/dark theme toggle
 - Keyboard focus styling and skip-to-content link
-- Project overview, responsible-use notes, roadmap, and game links
+- Homepage, project directory, Bug Detective notes, and dedicated roadmap
+- Project overview, responsible-use notes, and game links
 - Optional game trackers stored locally in the current browser
 
 ## Privacy and limitations
@@ -37,4 +38,5 @@ DLeo Bug Detective is described as an evolving project, not a complete security 
 - `index.html` — the portfolio homepage
 - `projects.html` — the project directory
 - `bug-detective.html` — Bug Detective scope, limitations, and development notes
+- `roadmap.html` — development priorities and project planning
 - `README.md` — this guide
