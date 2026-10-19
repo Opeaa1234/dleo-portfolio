@@ -66,7 +66,7 @@ function closeMenu(){nav.classList.remove('open');menu.setAttribute('aria-expand
 menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'Close':'Menu'});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav.classList.contains('open')){closeMenu();menu.focus()}});
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
-let chosen='dark';try{chosen=localStorage.getItem('dleo.theme')||'dark'}catch(e){}
+let chosen=null;try{chosen=localStorage.getItem('dleo.theme')}catch(e){}if(chosen!=='light'&&chosen!=='dark'){chosen=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'}
 function setTheme(value,save){const light=value==='light';root.classList.toggle('light',light);theme.textContent=light?'☾':'☼';theme.setAttribute('aria-pressed',String(light));theme.setAttribute('aria-label',light?'Switch to dark theme':'Switch to light theme');if(themeColor)themeColor.setAttribute('content',light?'#f4f7fc':'#0b1730');if(save){try{localStorage.setItem('dleo.theme',value)}catch(e){}}}
 setTheme(chosen==='light'?'light':'dark',false);theme.addEventListener('click',()=>setTheme(root.classList.contains('light')?'dark':'light',true));
 document.getElementById('year').textContent=new Date().getFullYear();
