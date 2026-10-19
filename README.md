@@ -33,6 +33,20 @@ The optional game tracker stores notes in the browser's local storage. The notes
 
 DLeo Bug Detective is described as an evolving project, not a complete security audit or a guarantee that a website is safe. Only assess websites you own or have permission to test.
 
+## Manual verification baseline
+
+Maintainer-reported browser checks passed on 2026-10-19:
+
+- Keyboard-only navigation, visible focus, and keyboard activation
+- Mobile menu Escape behavior and focus return
+- Light/dark theme consistency and persistence across pages
+- Readability of text, links, controls, and status messages in both themes
+- Navigation, theme, and tracker save/clear checks in a second browser
+- Direct loading and reloading of each HTML page
+- Responsive layout, tracker validation, clear/reset controls, and graceful handling when browser storage is unavailable
+
+These are manual test results, not an automated test suite. Repeat the relevant checks after changes. A successful GitHub source update does not by itself confirm that GitHub Pages has finished publishing the change; verify the live site separately.
+
 ## Project structure
 
 - `index.html` — the portfolio homepage
