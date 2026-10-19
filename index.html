@@ -1,198 +1,77 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0b1730">
-  <meta name="description" content="DLeo — a personal project showcase and gaming hub.">
-  <title>DLeo | Projects & Gaming</title>
-  <style>
-    :root{--navy:#0b1730;--navy2:#12264a;--blue:#356df3;--ink:#17233b;--muted:#61708a;--paper:#f5f7fb;--line:#dfe6f1;--card:#fff;--accent:#8db5ff}
-    .skip-link{position:absolute;left:12px;top:-60px;z-index:20;background:#fff;color:#10234a;padding:10px 14px;border:2px solid #356df3;border-radius:10px;font-weight:750;text-decoration:none}.skip-link:focus{top:12px}
-    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:82px}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-    a{color:inherit}button{font:inherit}.topbar{position:sticky;top:0;z-index:5;background:rgba(11,23,48,.96);color:#fff;backdrop-filter:blur(12px)}.nav{max-width:1080px;margin:auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px}.brand{font-weight:850;letter-spacing:.04em;font-size:1.2rem;text-decoration:none}.brand span{color:var(--accent)}.navlinks{display:flex;gap:18px;align-items:center}.navlinks a{font-size:.93rem;color:#e2eaff;text-decoration:none}.navlinks a:hover{color:var(--accent)}.nav-actions{display:flex;gap:8px;align-items:center}.iconbtn,.menu-toggle{background:#20365d;border:1px solid #405783;color:white;border-radius:10px;padding:7px 10px;cursor:pointer}.menu-toggle{display:none}
-    .hero{background:radial-gradient(circle at 80% 20%,#254d91 0,transparent 35%),linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:78px 20px 82px}.hero-inner{max-width:1080px;margin:auto}.eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:.78rem;color:#b7ceff;font-weight:750}.hero h1{font-size:clamp(2.4rem,7vw,4.6rem);line-height:1.08;letter-spacing:-.04em;margin:12px 0 18px;max-width:780px}.hero p{max-width:650px;color:#d8e3fa;font-size:1.1rem}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 17px;border-radius:12px;text-decoration:none;font-weight:750;border:1px solid transparent;transition:transform .2s,background .2s}.btn:hover{transform:translateY(-2px)}.primary{background:#fff;color:#10234a}.secondary{border-color:#7896ce;color:#fff;background:#ffffff0a}
-    main{max-width:1080px;margin:auto;padding:28px 20px 70px}.section{padding:38px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:20px}.section h2{font-size:clamp(1.7rem,4vw,2.35rem);line-height:1.2;letter-spacing:-.025em;margin:0 0 8px}.section-intro{color:var(--muted);max-width:690px;margin:0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 8px 26px #17233b08;transition:transform .2s,box-shadow .2s}.card:hover{transform:translateY(-3px);box-shadow:0 14px 32px #17233b12}.card-icon{width:44px;height:44px;display:grid;place-items:center;border-radius:13px;background:#e9f0ff;font-size:1.35rem;margin-bottom:15px}.card h3{margin:0 0 7px;font-size:1.13rem}.card p{color:var(--muted);margin:0 0 14px}.tag{display:inline-block;font-size:.76rem;font-weight:750;border-radius:99px;padding:4px 9px;background:#edf2fb;color:#3b5075}.tag.blue{background:#e6eeff;color:#2455c8}.card-link{color:#2455c8;font-weight:750;text-decoration:none}.card-link:hover{text-decoration:underline}.tracker{margin-top:14px;display:grid;gap:8px}.tracker-details{margin-top:14px;border:1px solid var(--line);border-radius:12px;padding:10px 12px}.tracker-details summary{cursor:pointer;font-weight:750;color:var(--ink)}.tracker-details[open] summary{margin-bottom:10px}.section#games .tracker-details{border-color:#425a80}.section#games .tracker-details summary{color:#e5efff}.game-art{height:170px;border-radius:14px;margin-bottom:18px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:16px;isolation:isolate;border:1px solid #5a79ae}.game-art::before,.game-art::after{content:"";position:absolute;z-index:-1;border-radius:50%;filter:blur(2px);animation:artFloat 8s ease-in-out infinite alternate}.game-art::before{width:180px;height:180px;right:-30px;top:-45px;background:#4a8bff88;box-shadow:0 0 55px #4488ff77}.game-art::after{width:120px;height:120px;left:20px;top:25px;background:#b05dff55;animation-delay:-3s}.game-art strong{font-size:1.5rem;line-height:1.1;color:#fff;text-shadow:0 3px 15px #000;font-weight:900;letter-spacing:-.03em}.game-art span{display:block;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:#e0eaff;margin-bottom:5px}.game-art.pool{background:radial-gradient(circle at 65% 42%,#247b58,#092e2d 55%,#07152a)}.game-art.pool::before{background:radial-gradient(circle at 35% 35%,#fff 0 8%,#111 9% 19%,#f4f7ff 20% 30%,#171e35 31% 45%,transparent 46%);filter:drop-shadow(0 12px 16px #0009);width:155px;height:155px;right:28px;top:4px}.game-art.pool::after{width:220px;height:3px;border-radius:0;left:0;top:60%;background:#e5bd77;filter:blur(1px);transform:rotate(-17deg)}.game-art.candy{background:radial-gradient(circle at 70% 30%,#7437b7,#251c61 48%,#09142c)}.game-art.candy::before{width:115px;height:115px;right:45px;top:20px;background:radial-gradient(circle at 30% 25%,#ffd3f3 0 8%,#ff4fbd 9% 48%,#a91f87 70%);box-shadow:0 0 40px #f45edb88}.game-art.candy::after{width:70px;height:70px;right:15px;top:75px;background:radial-gradient(circle at 30% 25%,#fff5ad 0 8%,#ffc93d 9% 50%,#dc6427 75%);box-shadow:0 0 30px #ffc93d77}@keyframes artFloat{from{transform:translate3d(-8px,-5px,0) rotate(-4deg)}to{transform:translate3d(12px,9px,0) rotate(5deg)}}.tracker label{font-size:.88rem;font-weight:700}.tracker input,.tracker textarea{width:100%;min-width:0;padding:10px 11px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);font:inherit}.tracker textarea{min-height:76px;resize:vertical}.tracker-actions{display:flex;gap:8px;flex-wrap:wrap}.tracker button{border:0;border-radius:10px;padding:9px 12px;font-weight:750;cursor:pointer;background:#17366c;color:white}.tracker button.reset{background:#e8edf6;color:#253958}.tracker-status{font-size:.84rem;color:var(--muted);min-height:1.3em}
-    .section#games{position:relative;isolation:isolate;overflow:hidden;border:1px solid #294a80;border-radius:24px;padding:34px 18px;margin:14px 0;background:linear-gradient(120deg,#08162f,#142e59,#102044,#0a1833);background-size:240% 240%;animation:gameSky 18s ease-in-out infinite;color:#fff}.section#games::before,.section#games::after{content:"";position:absolute;z-index:-1;pointer-events:none;width:260px;height:260px;border-radius:50%;filter:blur(34px);opacity:.42;animation:gameGlow 12s ease-in-out infinite alternate}.section#games::before{top:-90px;right:-35px;background:#3278ff}.section#games::after{bottom:-110px;left:8%;background:#8a45d7;animation-delay:-5s}.section#games .eyebrow{color:#b9d2ff}.section#games h2,.section#games h3{color:#fff}.section#games .section-intro,.section#games .card p{color:#c6d5ef}.section#games .card{position:relative;background:rgba(12,27,54,.88);border-color:#36527e;backdrop-filter:blur(7px)}.section#games .card-icon{background:#233e6b}.section#games .tag{background:#263d62;color:#e3edff}.section#games .tag.blue{background:#214b9b;color:#fff}.section#games .card-link{color:#a9caff}.section#games .tracker input,.section#games .tracker textarea{background:#0b1931;color:#f3f6ff;border-color:#425a80}.section#games .tracker-status{color:#b7c9e7}.section#games .tracker button.reset{background:#dbe6f7;color:#172b4c}@keyframes gameSky{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}@keyframes gameGlow{from{transform:translate3d(-12px,-8px,0) scale(.9)}to{transform:translate3d(28px,18px,0) scale(1.16)}}
-    .roadmap{display:grid;gap:12px}.milestone{display:grid;grid-template-columns:14px 1fr;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:17px}.dot{width:11px;height:11px;border-radius:50%;background:var(--blue);margin-top:8px;box-shadow:0 0 0 5px #e6eeff}.milestone h3{margin:0 0 4px;font-size:1rem}.milestone p{margin:0;color:var(--muted)}.milestone .tag{margin-top:9px}.note{font-size:.9rem;color:var(--muted);margin-top:12px}
-    .callout{background:linear-gradient(135deg,#e8efff,#f8faff);border:1px solid #d4e0fb;border-radius:18px;padding:24px}.callout p{color:#435574;margin-bottom:0}.footer{background:var(--navy);color:#d8e3fa;padding:28px 20px}.footer-inner{max-width:1080px;margin:auto;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}.footer a{color:#fff}.small{font-size:.9rem;color:#aebfe0}
-    body.dark{--paper:#0b1220;--ink:#edf2ff;--muted:#a8b5cc;--line:#27354c;--card:#121e32}.dark .card-icon{background:#1f3151}.dark .tag{background:#253651;color:#d8e5ff}.dark .tag.blue{background:#203c78;color:#dbe6ff}.dark .callout{background:#13223b;border-color:#29446f}.dark .callout p{color:#c2d0e7}
-    /* Readable light theme; the game gallery keeps its intentional dark styling. */
-    body.light-theme{--ink:#17233b;--muted:#61708a;--paper:#f5f7fb;--line:#dfe6f1;--card:#fff;background:linear-gradient(140deg,#f7f9ff,#eaf0fb 48%,#f8faff);color:var(--ink);animation:none}
-    .light-theme .card{background:#fff;border-color:var(--line);box-shadow:0 8px 26px #17233b0d}
-    .light-theme .card p,.light-theme .section-intro{color:var(--muted)}
-    .light-theme .card-icon{background:#e9f0ff;box-shadow:none}
-    .light-theme .tag{background:#edf2fb;color:#3b5075}.light-theme .tag.blue{background:#e6eeff;color:#2455c8}
-    .light-theme .milestone{background:#fff;border-color:var(--line)}
-    .light-theme .callout{background:linear-gradient(135deg,#e8efff,#f8faff);border-color:#d4e0fb;box-shadow:none}
-    .light-theme .callout p{color:#435574}
-    .light-theme .section#games .card{background:rgba(12,27,54,.88);border-color:#36527e}
-    .light-theme .section#games .card p{color:#c6d5ef}
-    .light-theme .section#games .card-icon{background:#233e6b}
-    .light-theme .section#games .tag{background:#263d62;color:#e3edff}
-    .light-theme .section#games .tag.blue{background:#214b9b;color:#fff}
-    .light-theme .section#games .card-link{color:#a9caff}
-    .light-theme .section#games .tracker input,.light-theme .section#games .tracker textarea{background:#0b1931;color:#f3f6ff;border-color:#425a80}
-    .light-theme .section#games .tracker-status{color:#b7c9e7}
-    @media(max-width:760px){.navlinks{display:none;position:absolute;top:58px;left:0;right:0;background:var(--navy);padding:16px 20px 20px;flex-direction:column;align-items:flex-start;border-top:1px solid #304363}.navlinks.open{display:flex}.menu-toggle{display:block}.hero{padding:58px 20px 64px}.grid{grid-template-columns:1fr}.section-head{display:block}.section{padding:29px 0}.card{padding:19px}.footer-inner{display:block}.footer-inner>*{margin-bottom:8px}}
-    @media(max-width:760px){.section#games{padding:25px 14px;border-radius:18px}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
-  
-    /* Cinematic personal gallery theme */
-    :root{--ink:#f1f5ff;--muted:#b4c3df;--paper:#07101f;--line:#294064;--card:rgba(14,29,55,.86);--accent:#8db5ff}
-    body{background:radial-gradient(ellipse at 15% 12%,#152c53 0,transparent 35%),radial-gradient(ellipse at 88% 40%,#251b50 0,transparent 30%),linear-gradient(140deg,#050b16,#0a1730 48%,#090e20);background-size:160% 160%;animation:pageDrift 28s ease-in-out infinite;color:var(--ink)}
-    .card{background:linear-gradient(145deg,rgba(19,39,72,.94),rgba(9,20,40,.92));border-color:#2c4770;box-shadow:0 12px 32px #0005}
-    .card:hover{transform:translateY(-5px);border-color:#6798ee;box-shadow:0 18px 38px #0007,0 0 22px #3b70d422}
-    .card p,.section-intro{color:#c0cde3}.card-icon{background:linear-gradient(135deg,#244b83,#32245f);box-shadow:0 0 22px #3c6fba33}
-    .tag{background:#243b5e;color:#dce8ff}.tag.blue{background:#234b91;color:#fff}
-    .callout{background:linear-gradient(135deg,rgba(20,42,78,.96),rgba(13,24,49,.96));border-color:#36527c;box-shadow:0 14px 38px #0004}.callout p{color:#c4d2e9}
-    .milestone{background:linear-gradient(145deg,rgba(19,39,72,.94),rgba(9,20,40,.92));border-color:#294064}
-    .tracker-details summary{color:#e5efff}
-    @keyframes pageDrift{0%,100%{background-position:0% 0%,100% 50%,0% 50%}50%{background-position:100% 40%,0% 80%,100% 50%}}
-    @media(prefers-reduced-motion:reduce){body{animation:none!important}}
-
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1730">
+<meta name="description" content="DLeo — projects, technology, and gaming.">
+<title>DLeo | Projects &amp; Gaming</title>
+<style>
+:root{color-scheme:dark;--bg:#081225;--panel:#101f38;--panel2:#142746;--text:#f4f7ff;--muted:#b6c4dc;--line:#2a4062;--accent:#9bbcff;--link:#b5ceff}
+:root.light{color-scheme:light;--bg:#f4f7fc;--panel:#fff;--panel2:#edf3fc;--text:#17243c;--muted:#5c6c86;--line:#dbe4f1;--accent:#2458bf;--link:#2458bf}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:76px}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}a{color:inherit}button,input,textarea{font:inherit}
+.skip{position:absolute;top:-60px;left:12px;z-index:20;background:var(--panel);padding:10px;border-radius:8px}.skip:focus{top:12px}
+header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav{max-width:1000px;margin:auto;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px}.brand{font-size:1.25rem;font-weight:900;text-decoration:none;letter-spacing:-.04em}.brand span{color:var(--accent)}.navlinks{display:flex;gap:18px;align-items:center}.navlinks a{font-size:.92rem;text-decoration:none;color:var(--muted)}.navlinks a:hover{color:var(--accent)}.navtools{display:flex;gap:8px}.tool,.menu{border:1px solid var(--line);border-radius:10px;padding:7px 11px;background:var(--panel2);color:var(--text);cursor:pointer}.menu{display:none}
+.hero{background:radial-gradient(ellipse at 85% 15%,#294f91 0,transparent 35%),linear-gradient(125deg,#081225,#12284b 65%,#201b43);color:#fff}.hero-inner{max-width:1000px;margin:auto;padding:72px 20px 78px}.eyebrow{color:var(--accent);font-size:.76rem;text-transform:uppercase;letter-spacing:.16em;font-weight:850}.hero h1{font-size:clamp(2.7rem,8vw,5rem);line-height:1.04;letter-spacing:-.06em;max-width:760px;margin:14px 0}.hero h1 span{color:#a9c7ff}.hero p{max-width:650px;color:#d5e0f5;font-size:1.08rem}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.btn{display:inline-flex;justify-content:center;align-items:center;text-decoration:none;font-weight:800;border-radius:11px;padding:10px 15px;border:1px solid #6c8cbe}.btn.primary{background:#f4f7ff;color:#122649;border-color:#f4f7ff}.btn.secondary{color:#fff;background:#ffffff08}
+main{max-width:1000px;margin:auto;padding:24px 20px 60px}.section{padding:34px 0;scroll-margin-top:75px}.section h2{font-size:clamp(1.7rem,4vw,2.35rem);line-height:1.2;letter-spacing:-.04em;margin:5px 0 10px}.intro{color:var(--muted);max-width:700px;margin:0 0 20px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.card{min-width:0;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 12px 28px #0002}.card h3{margin:0 0 7px;font-size:1.08rem}.card p{color:var(--muted);margin:0 0 13px}.symbol{width:42px;height:42px;border-radius:12px;background:var(--panel2);display:grid;place-items:center;font-size:1.3rem;margin-bottom:13px}.tag{display:inline-block;border:1px solid var(--line);border-radius:30px;padding:3px 8px;color:var(--muted);font-size:.76rem;font-weight:750}.tag.live{color:#b9f3db;border-color:#2b705b;background:#12382f}.link{display:inline-block;color:var(--link);font-weight:800;text-decoration:none;margin-top:8px}.link:hover{text-decoration:underline}
+.callout{border:1px solid var(--line);border-radius:16px;padding:22px;background:var(--panel2)}.callout p{color:var(--muted);margin-bottom:0}.games{background:linear-gradient(125deg,#0b1932,#142d55,#201a43);border:1px solid #304b77;border-radius:20px;padding:22px;color:#fff}.games .intro{color:#c9d8f0}.games .card{background:#0c1b34;border-color:#36527b}.games .card p{color:#c5d3e9}.games .tag{color:#d9e6fa;border-color:#3c5579}.art{height:105px;border-radius:12px;padding:13px;display:flex;align-items:flex-end;margin-bottom:15px;background:radial-gradient(circle at 78% 24%,#317e6a,#173d48 48%,#08172c);border:1px solid #3e6483}.art.candy{background:radial-gradient(circle at 78% 24%,#9a42a3,#39235f 48%,#11172e)}.art strong{font-size:1.25rem;letter-spacing:-.03em}.tracker{margin-top:12px;border-top:1px solid #3a5277;padding-top:11px}.tracker summary{cursor:pointer;font-weight:800}.fields{display:grid;gap:8px;margin-top:12px}.fields label{font-size:.86rem;font-weight:750}.fields input,.fields textarea{width:100%;min-width:0;border:1px solid #405a80;background:#07152b;color:#fff;border-radius:9px;padding:9px 10px}.fields textarea{min-height:70px;resize:vertical}.buttons{display:flex;gap:8px;flex-wrap:wrap}.buttons button{border:0;border-radius:9px;background:#dbe8ff;color:#122649;padding:8px 11px;font-weight:800;cursor:pointer}.buttons .clear{background:#293d5b;color:#fff}.status{font-size:.82rem;color:#bdcce4;min-height:1.2em;margin:0!important}
+.roadmap{display:grid;gap:10px}.milestone{border:1px solid var(--line);background:var(--panel);border-radius:13px;padding:15px;display:grid;grid-template-columns:12px 1fr;gap:12px}.dot{width:9px;height:9px;background:var(--accent);border-radius:50%;margin-top:8px}.milestone h3{font-size:1rem;margin:0 0 3px}.milestone p{color:var(--muted);margin:0}.note{font-size:.88rem;color:var(--muted);margin-top:14px}footer{border-top:1px solid var(--line);padding:24px 20px;color:var(--muted)}.footer-inner{max-width:1000px;margin:auto;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:760px){.navlinks{display:none;position:absolute;top:60px;left:0;right:0;padding:16px 20px;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:13px}.navlinks.open{display:flex}.menu{display:inline-block}.grid{grid-template-columns:1fr}.hero-inner{padding:55px 18px 60px}main{padding:14px 15px 45px}.section{padding:28px 0}.card{padding:18px}.games{padding:16px}.footer-inner{display:block}.footer-inner>*{margin:5px 0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-  <header class="topbar">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="#home">DLeo<span>.</span></a>
-      <div class="navlinks" id="navlinks">
-        <a href="#projects">Projects</a><a href="#games">Game Gallery</a><a href="#discover">Discover</a><a href="#community">Community</a><a href="#roadmap">Roadmap</a><a href="#about">About</a><a href="#contact">Contact</a>
-      </div>
-      <div class="nav-actions"><button class="iconbtn" id="themeBtn" type="button" aria-label="Toggle dark mode">☾</button><button class="menu-toggle" id="menuBtn" type="button" aria-expanded="false" aria-controls="navlinks">Menu</button></div>
-    </nav>
-  </header>
-  <section class="hero" id="home"><div class="hero-inner">
-    <div class="eyebrow">Projects • Technology • Gaming</div>
-    <h1>My world.<br>My projects. My games.</h1>
-    <p>Welcome to my personal space: a living showcase of DLeo, the things I am learning, and the games I enjoy. I am building this one step at a time, testing ideas and improving as I go.</p>
-    <div class="actions"><a class="btn primary" href="#projects">Explore my projects</a><a class="btn secondary" href="#games">Enter the gaming hub</a></div>
-  </div></section>
-  <main id="main-content" tabindex="-1">
-    <section class="section" id="projects">
-      <div class="section-head"><div><div class="eyebrow">What I'm building</div><h2>Project showcase</h2><p class="section-intro">A practical record of projects, prototypes, and improvements. Status labels describe the current stage rather than promise a finish date.</p></div></div>
-      <div class="grid">
-        <article class="card"><div class="card-icon">🛠️</div><h3>DLeo Bug Detective</h3><p>A project focused on diagnosing website issues, reporting useful checks, and improving reliability step by step.</p><span class="tag blue">Active project</span><p style="margin-top:15px"><a class="card-link" href="#dleo-details">Explore DLeo →</a></p></article>
-        <article class="card"><div class="card-icon">📱</div><h3>Phone Guardian</h3><p>A small browser-based diagnostic experiment for checking selected page features and recording local notes.</p><span class="tag">Prototype</span></article>
-        <article class="card"><div class="card-icon">🌐</div><h3>This portfolio</h3><p>A mobile-friendly public home for project updates and the gaming features planned below.</p><span class="tag blue">Version 1</span></article>
-      </div>
-    </section>
-
-
-    <section class="section" id="dleo-details" aria-labelledby="dleo-details-title">
-      <div class="eyebrow">DLeo Bug Detective · Project details</div>
-      <h2 id="dleo-details-title">Website checks, made easier to understand</h2>
-      <p class="section-intro">DLeo is an evolving developer project focused on selected website checks, readiness diagnostics, and readable reports. This overview is included on this page so it works as a single HTML file in your phone editor.</p>
-      <div class="cards">
-        <article class="card"><div class="card-icon">🔎</div><h3>Website checks</h3><p>Inspects selected HTTP security headers and reports findings for follow-up review. These checks do not detect every possible security issue.</p><span class="tag">Selected checks</span></article>
-        <article class="card"><div class="card-icon">🩺</div><h3>Readiness diagnostics</h3><p>Doctor-style checks highlight selected configuration and documentation items that may need attention.</p><span class="tag">Configuration guidance</span></article>
-        <article class="card"><div class="card-icon">📋</div><h3>Readable reports</h3><p>Helps organize findings so they can be reviewed and discussed before making changes.</p><span class="tag">Human review</span></article>
-      </div>
-      <div class="callout" style="margin-top:22px">
-        <h3>How to use a check responsibly</h3>
-        <p>Only check websites you own or have permission to assess. Read each finding carefully, verify it independently, and test changes safely before using them in production.</p>
-      </div>
-      <div class="cards" style="margin-top:18px">
-        <article class="card"><h3>What DLeo is</h3><p>A lightweight starting point for understanding selected website signals and deciding what deserves a closer look.</p></article>
-        <article class="card"><h3>What DLeo is not</h3><p>It is not a complete security audit, antivirus, firewall, VPN, or automatic protection for your Android phone. A passing check cannot guarantee a site is safe.</p></article>
-        <article class="card"><h3>Roadmap</h3><p>Continue refining checks, improve report clarity, add edge-case tests, and document the limits of each feature. Features will only be called complete after implementation and testing.</p></article>
-      </div>
-      <p style="margin-top:22px"><a class="card-link" href="#projects">← Back to projects</a></p>
-    </section>
-
-    <section class="section" id="games">
-      <div class="eyebrow">The game gallery</div><h2>My gaming collection</h2><p class="section-intro">My current gaming picks are 8 Ball Pool and Candy Crush Saga. Play as usual — the personal trackers are optional and stay closed until you choose to open them.</p>
-      <div class="grid" style="margin-top:20px">
-        <article class="card"><div class="game-art pool"><div><span>Precision • Multiplayer</span><strong>8 BALL POOL</strong></div></div><div class="card-icon">🎱</div><h3>8 Ball Pool</h3><p>A multiplayer pool game from Miniclip. Enjoy the game; use the private notes only if they are useful to you.</p><span class="tag blue">I play</span><p style="margin-top:15px"><a class="card-link" href="https://www.miniclip.com/games/8-ball-pool-multiplayer/en/" target="_blank" rel="noopener noreferrer">Visit official game page ↗</a></p><details class="tracker-details"><summary>Optional: save a goal or match notes</summary><div class="tracker"><label for="poolNote">My pool goal / match notes</label><textarea id="poolNote" maxlength="500" placeholder="Example: practise aiming and bank shots"></textarea><div class="tracker-actions"><button type="button" id="savePool">Save notes</button><button type="button" class="reset" id="resetPool">Clear</button></div><div class="tracker-status" id="poolStatus" aria-live="polite">Notes are saved only in this browser on this device.</div></div></details></article>
-        <article class="card"><div class="game-art candy"><div><span>Match • Relax • Play</span><strong>CANDY CRUSH</strong></div></div><div class="card-icon">🍬</div><h3>Candy Crush Saga</h3><p>Enjoy Candy Crush Saga. If you want, you can save your level later when you check it on your phone.</p><span class="tag blue">I play</span><p style="margin-top:15px"><a class="card-link" href="https://www.candycrush.com/" target="_blank" rel="noopener noreferrer">Visit official game website ↗</a></p><details class="tracker-details"><summary>Optional: save my level or a goal</summary><div class="tracker"><label for="candyLevel">My current level</label><input id="candyLevel" type="number" min="1" max="99999" inputmode="numeric" placeholder="Enter level number"><label for="candyGoal">Next goal / notes</label><textarea id="candyGoal" maxlength="500" placeholder="Example: try to pass level ..."></textarea><div class="tracker-actions"><button type="button" id="saveCandy">Save progress</button><button type="button" class="reset" id="resetCandy">Clear</button></div><div class="tracker-status" id="candyStatus" aria-live="polite">Progress is saved only in this browser on this device.</div></div></details></article>
-        <article class="card"><div class="game-art" style="background:radial-gradient(circle at 70% 30%,#1f65a9,#121e4b 55%,#071426)"><div><span>Personal collection</span><strong>LEVEL UP</strong></div></div><div class="card-icon">🏆</div><h3>My gaming goals</h3><p>Save a personal target, such as improving pool accuracy or beating a tricky Candy Crush level.</p><span class="tag">Personal goals</span></article>
-      </div>
-    </section>
-    <section class="section" id="discover">
-      <div class="eyebrow">Explore the wider gaming universe</div><h2>Discover more games</h2><p class="section-intro">A space for game discoveries, helpful tips, and recommendations. No live news feed is connected yet, so this page will not pretend to show current headlines.</p>
-      <div class="grid" style="margin-top:20px">
-        <article class="card"><div class="card-icon">✨</div><h3>Recommendations</h3><p>Curated suggestions based on the kinds of games you enjoy.</p><span class="tag">Planned</span></article>
-        <article class="card"><div class="card-icon">🧭</div><h3>Tips & guides</h3><p>Useful gameplay notes, beginner tips, and lessons worth saving.</p><span class="tag">Planned</span></article>
-        <article class="card"><div class="card-icon">🗓️</div><h3>New releases</h3><p>A future list of releases and updates, with dates checked before posting.</p><span class="tag">Planned</span></article>
-      </div>
-    </section>
-    <section class="section" id="community">
-      <div class="eyebrow">Play together, later</div><h2>Gaming community</h2>
-      <div class="callout"><h3 style="margin-top:0">A community is on the roadmap</h3><p>Player profiles, shared scores, leaderboards, and tournaments can come in a later phase. Real accounts and public submissions need a secure backend, moderation, and privacy protections. For now, this is a roadmap section — it does not collect accounts or scores.</p></div>
-    </section>
-    <section class="section" id="roadmap">
-      <div class="eyebrow">Small steps, tested well</div><h2>Milestones & roadmap</h2><p class="section-intro">We'll mark items complete only after they have been checked. No guessed completion dates.</p>
-      <div class="roadmap" style="margin-top:20px">
-        <div class="milestone"><span class="dot"></span><div><h3>Portfolio foundation</h3><p>Responsive layout, project showcase, and navigation.</p><span class="tag blue">Built in this version</span></div></div>
-        <div class="milestone"><span class="dot"></span><div><h3>Publish and test the live site</h3><p>GitHub Pages is configured, and you reported that the site opens correctly.</p><span class="tag blue">User-confirmed working</span></div></div>
-        <div class="milestone"><span class="dot"></span><div><h3>Personal game library</h3><p>Added 8 Ball Pool and Candy Crush Saga with official game links.</p><span class="tag blue">Added in this update</span></div></div>
-        <div class="milestone"><span class="dot"></span><div><h3>Gaming discoveries</h3><p>Add checked recommendations and useful gaming guides.</p><span class="tag">Planned</span></div></div>
-        <div class="milestone"><span class="dot"></span><div><h3>Community features</h3><p>Evaluate secure accounts, scores, moderation, and backend needs.</p><span class="tag">Future phase</span></div></div>
-      </div><p class="note">DLeo development and this portfolio are separate. Portfolio changes are not changes to the DLeo software itself.</p>
-    </section>
-    <section class="section" id="about"><div class="eyebrow">The person behind the projects</div><h2>Welcome to my world</h2><p class="section-intro">I am someone who enjoys exploring ideas, playing games, and turning curiosity into practical projects. DLeo is my ongoing bug-detection and reliability project. This site brings my work and interests together in one place — a personal gallery that can grow with me. I will share progress honestly, protect private information, and mark features as complete only when they have been checked.</p></section>
-    <section class="section" id="contact"><div class="callout"><h2 style="margin-top:0">Follow the project journey</h2><p>Learn about DLeo right here on this website. This public overview explains the project without exposing private development resources.</p><div class="actions"><a class="btn" style="background:#17366c;color:white" href="#dleo-details">Explore DLeo →</a></div></div></section>
-  </main>
-  <footer class="footer"><div class="footer-inner"><div><strong>DLeo.</strong><div class="small">Projects, technology, and gaming.</div></div><div class="small">© <span id="year"></span> DLeo. Built step by step.</div></div></footer>
-  <script>
-    const menuBtn=document.getElementById('menuBtn');
-    const navlinks=document.getElementById('navlinks');
-    const navItems=[...navlinks.querySelectorAll('a[href^="#"]')];
-    function closeMenu(){navlinks.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='Menu';}
-    document.addEventListener('keydown',event=>{if(event.key==='Escape'&&navlinks.classList.contains('open')){closeMenu();menuBtn.focus();}});
-    menuBtn.addEventListener('click',()=>{const open=navlinks.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));menuBtn.textContent=open?'Close menu':'Menu';});
-    navItems.forEach(link=>link.addEventListener('click',event=>{
-      const targetId=link.getAttribute('href').slice(1);
-      const target=document.getElementById(targetId);
-      if(!target){event.preventDefault();return;}
-      closeMenu();
-      navItems.forEach(item=>item.removeAttribute('aria-current'));
-      link.setAttribute('aria-current','location');
-      // Scroll to the real section on this page; do not send visitors to a different page.
-      target.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
-    }));
-    document.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('click',event=>{
-      const targetId=link.getAttribute('href').slice(1);
-      const target=document.getElementById(targetId);
-      if(!target){event.preventDefault();return;}
-      if(link.closest('#navlinks'))return;
-      event.preventDefault();
-      target.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
-      if(targetId==='home'){navItems.forEach(item=>item.removeAttribute('aria-current'));}
-    }));
-    window.addEventListener('hashchange',()=>{
-      const active=navItems.find(item=>item.getAttribute('href')===window.location.hash);
-      navItems.forEach(item=>item.removeAttribute('aria-current'));
-      if(active)active.setAttribute('aria-current','location');
-    });
-    const themeBtn=document.getElementById('themeBtn');
-    function applyTheme(theme){
-      const light=theme==='light';
-      document.body.classList.toggle('light-theme',light);
-      themeBtn.textContent=light?'☀':'☾';
-      themeBtn.setAttribute('aria-pressed',String(light));
-      themeBtn.setAttribute('aria-label',light?'Switch to dark theme':'Switch to light theme');
-    }
-    let savedTheme=null;
-    try{savedTheme=localStorage.getItem('dleo.theme');}catch(e){}
-    applyTheme(savedTheme==='light'?'light':'dark');
-    themeBtn.addEventListener('click',()=>{
-      const nextTheme=document.body.classList.contains('light-theme')?'dark':'light';
-      applyTheme(nextTheme);
-      try{localStorage.setItem('dleo.theme',nextTheme);}catch(e){}
-    });
-    document.getElementById('year').textContent=new Date().getFullYear();
-    // Private, lightweight tracker: data stays in this browser and is not sent to a server.
-    const trackerFields={poolNote:{key:"dleo.poolNote",type:"text"},candyLevel:{key:"dleo.candyLevel",type:"number"},candyGoal:{key:"dleo.candyGoal",type:"text"}};
-    try{Object.entries(trackerFields).forEach(([id,meta])=>{const saved=localStorage.getItem(meta.key);if(saved!==null)document.getElementById(id).value=saved;});}catch(e){}
-    function saveTracker(ids,statusId){const status=document.getElementById(statusId);try{ids.forEach(id=>localStorage.setItem(trackerFields[id].key,document.getElementById(id).value));status.textContent="Saved on this device in this browser.";}catch(e){status.textContent="Could not save here. Keep a separate note as backup.";}}
-    function clearTracker(ids,statusId){ids.forEach(id=>document.getElementById(id).value="");try{ids.forEach(id=>localStorage.removeItem(trackerFields[id].key));document.getElementById(statusId).textContent="Saved tracker data cleared from this browser.";}catch(e){document.getElementById(statusId).textContent="Fields cleared; browser storage could not be updated.";}}
-    document.getElementById("savePool").addEventListener("click",()=>saveTracker(["poolNote"],"poolStatus"));
-    document.getElementById("resetPool").addEventListener("click",()=>clearTracker(["poolNote"],"poolStatus"));
-    document.getElementById("saveCandy").addEventListener("click",()=>{const level=document.getElementById("candyLevel");if(level.value && (Number(level.value)<1||Number(level.value)>99999)){document.getElementById("candyStatus").textContent="Enter a level between 1 and 99999.";return;}saveTracker(["candyLevel","candyGoal"],"candyStatus");});
-    document.getElementById("resetCandy").addEventListener("click",()=>clearTracker(["candyLevel","candyGoal"],"candyStatus"));
-  </script>
+<a class="skip" href="#main">Skip to content</a>
+<header><nav aria-label="Main navigation"><a class="brand" href="#home">DLeo<span>.</span></a><div class="navlinks" id="navlinks"><a href="#projects">Projects</a><a href="#games">Games</a><a href="#roadmap">Roadmap</a><a href="#about">About</a></div><div class="navtools"><button class="tool" id="themeBtn" type="button" aria-label="Switch to light theme" aria-pressed="false">☼</button><button class="menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="navlinks">Menu</button></div></nav></header>
+<section class="hero" id="home"><div class="hero-inner"><div class="eyebrow">Projects · Technology · Gaming</div><h1>Ideas worth building.<br><span>Progress worth sharing.</span></h1><p>Welcome to DLeo — a simple home for my projects, technology interests, and favourite games. Clear, lightweight, and designed to work on mobile or desktop.</p><div class="actions"><a class="btn primary" href="#projects">Explore projects ↓</a><a class="btn secondary" href="#games">Game gallery ↗</a></div></div></section>
+<main id="main" tabindex="-1">
+<section class="section" id="projects"><div class="eyebrow">The essentials</div><h2>Project showcase</h2><p class="intro">A small, focused preview of what I’m building. Future features are labelled as planned, not presented as finished.</p><div class="grid">
+<article class="card"><div class="symbol">🛠️</div><h3>DLeo Bug Detective</h3><p>A developer project for selected website checks, configuration diagnostics, and readable findings.</p><span class="tag live">Active project</span><p><a class="link" href="#dleo">View project details →</a></p></article>
+<article class="card"><div class="symbol">🌐</div><h3>DLeo Portfolio</h3><p>This single-file page keeps the public overview, game links, and optional private trackers together.</p><span class="tag">Single HTML file</span></article>
+<article class="card"><div class="symbol">🧪</div><h3>Next improvements</h3><p>Refine diagnostics, test edge cases, and improve report clarity before adding more features.</p><span class="tag">In progress</span></article>
+</div></section>
+<section class="section" id="dleo"><div class="eyebrow">Project overview</div><h2>DLeo Bug Detective</h2><p class="intro">An evolving tool for selected website checks and readiness diagnostics, with findings written so people can review and investigate them.</p><div class="grid">
+<article class="card"><div class="symbol">🔎</div><h3>Website checks</h3><p>Checks selected HTTP security headers. It cannot find every security problem or guarantee a site is safe.</p><span class="tag">Selected checks</span></article>
+<article class="card"><div class="symbol">🩺</div><h3>Configuration guidance</h3><p>Highlights selected configuration and documentation items that may need a closer look.</p><span class="tag">Diagnostics</span></article>
+<article class="card"><div class="symbol">📋</div><h3>Readable findings</h3><p>Organizes results for human review, verification, and follow-up.</p><span class="tag">Human review</span></article>
+</div><div class="callout" style="margin-top:15px"><strong>Responsible use</strong><p>Only test websites you own or have permission to assess. DLeo is not a complete security audit, antivirus, firewall, VPN, or automatic Android protection. Verify findings independently and test changes safely.</p></div></section>
+<section class="section" id="games"><div class="games"><div class="eyebrow">The game gallery</div><h2>My gaming collection</h2><p class="intro">Featured games with optional trackers. Notes are stored locally in this browser when storage is available; they are not sent to a server.</p><div class="grid">
+<article class="card"><div class="art"><strong>8 BALL POOL</strong></div><div class="symbol">🎱</div><h3>8 Ball Pool</h3><p>Multiplayer pool from Miniclip. Use the tracker for a personal practice goal or match notes.</p><a class="link" href="https://www.miniclip.com/games/8-ball-pool-multiplayer/en/" target="_blank" rel="noopener noreferrer">Official game page ↗</a><details class="tracker"><summary>Optional: pool notes</summary><div class="fields"><label for="poolNote">Practice goal or notes</label><textarea id="poolNote" maxlength="500" placeholder="Example: practise aiming and bank shots"></textarea><div class="buttons"><button id="savePool" type="button">Save</button><button class="clear" id="clearPool" type="button">Clear</button></div><p class="status" id="poolStatus" aria-live="polite">Not saved yet.</p></div></details></article>
+<article class="card"><div class="art candy"><strong>CANDY CRUSH</strong></div><div class="symbol">🍬</div><h3>Candy Crush Saga</h3><p>Keep an optional record of your current level and next goal.</p><a class="link" href="https://www.candycrush.com/" target="_blank" rel="noopener noreferrer">Official game website ↗</a><details class="tracker"><summary>Optional: level tracker</summary><div class="fields"><label for="candyLevel">Current level</label><input id="candyLevel" type="number" min="1" max="99999" inputmode="numeric" placeholder="Enter level"><label for="candyGoal">Next goal or notes</label><textarea id="candyGoal" maxlength="500" placeholder="A level to beat or strategy to try"></textarea><div class="buttons"><button id="saveCandy" type="button">Save</button><button class="clear" id="clearCandy" type="button">Clear</button></div><p class="status" id="candyStatus" aria-live="polite">Not saved yet.</p></div></details></article>
+<article class="card"><div class="art candy"><strong>PERSONAL GOALS</strong></div><div class="symbol">🏆</div><h3>Play at your pace</h3><p>Set small goals, practise regularly, and enjoy the games without pressure.</p><span class="tag">Personal</span></article>
+</div></div></section>
+<section class="section" id="roadmap"><div class="eyebrow">Keep it simple</div><h2>Roadmap</h2><p class="intro">A short list of next steps — not a long collection of promises.</p><div class="roadmap">
+<div class="milestone"><span class="dot"></span><div><h3>Portfolio foundation</h3><p>Responsive layout, navigation, theme toggle, and project overview.</p></div></div>
+<div class="milestone"><span class="dot"></span><div><h3>Test the phone preview</h3><p>Check links, theme switching, menus, and local trackers in JAScript on your device.</p></div></div>
+<div class="milestone"><span class="dot"></span><div><h3>Improve DLeo itself</h3><p>Test diagnostic accuracy and edge cases in the underlying tool separately from this portfolio.</p></div></div>
+</div><p class="note">This portfolio is separate from the DLeo software. Editing this page does not change the underlying tool.</p></section>
+<section class="section" id="about"><div class="callout"><div class="eyebrow">About this page</div><h2>Built to be clear</h2><p>This is the simple public preview: a small project showcase, DLeo overview, game gallery, and short roadmap. Bigger ideas can wait until the core page is tested and stable.</p><div class="actions"><a class="btn primary" style="background:var(--accent);color:#07152c;border-color:var(--accent)" href="#home">Back to top ↑</a></div></div></section>
+</main>
+<footer><div class="footer-inner"><div><strong>DLeo.</strong><div>Projects · Technology · Gaming</div></div><div>© <span id="year"></span> DLeo</div></div></footer>
+<script>
+(()=>{'use strict';
+const root=document.documentElement,menu=document.getElementById('menuBtn'),nav=document.getElementById('navlinks'),theme=document.getElementById('themeBtn');
+function closeMenu(){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='Menu'}
+menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'Close':'Menu'});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav.classList.contains('open')){closeMenu();menu.focus()}});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+let chosen='dark';try{chosen=localStorage.getItem('dleo.theme')||'dark'}catch(e){}
+function setTheme(value,save){const light=value==='light';root.classList.toggle('light',light);theme.textContent=light?'☾':'☼';theme.setAttribute('aria-pressed',String(light));theme.setAttribute('aria-label',light?'Switch to dark theme':'Switch to light theme');if(save){try{localStorage.setItem('dleo.theme',value)}catch(e){}}}
+setTheme(chosen==='light'?'light':'dark',false);theme.addEventListener('click',()=>setTheme(root.classList.contains('light')?'dark':'light',true));
+document.getElementById('year').textContent=new Date().getFullYear();
+const fields={poolNote:'dleo.poolNote',candyLevel:'dleo.candyLevel',candyGoal:'dleo.candyGoal'};
+function read(key){try{return localStorage.getItem(key)}catch(e){return null}}
+function write(key,value){try{localStorage.setItem(key,value);return true}catch(e){return false}}
+function remove(key){try{localStorage.removeItem(key);return true}catch(e){return false}}
+Object.entries(fields).forEach(([id,key])=>{const value=read(key);if(value!==null)document.getElementById(id).value=value});
+function save(ids,statusId){const ok=ids.map(id=>write(fields[id],document.getElementById(id).value)).every(Boolean);document.getElementById(statusId).textContent=ok?'Saved on this device in this browser.':'Browser storage is unavailable; keep a separate backup.'}
+function clear(ids,statusId){ids.forEach(id=>document.getElementById(id).value='');const ok=ids.map(id=>remove(fields[id])).every(Boolean);document.getElementById(statusId).textContent=ok?'Tracker data cleared from this browser.':'Fields cleared, but browser storage could not be updated.'}
+document.getElementById('savePool').addEventListener('click',()=>save(['poolNote'],'poolStatus'));
+document.getElementById('clearPool').addEventListener('click',()=>clear(['poolNote'],'poolStatus'));
+document.getElementById('saveCandy').addEventListener('click',()=>{const level=document.getElementById('candyLevel'),v=level.value;if(v&&(!Number.isInteger(Number(v))||Number(v)<1||Number(v)>99999)){document.getElementById('candyStatus').textContent='Enter a whole-number level from 1 to 99999.';level.focus();return}save(['candyLevel','candyGoal'],'candyStatus')});
+document.getElementById('clearCandy').addEventListener('click',()=>clear(['candyLevel','candyGoal'],'candyStatus'));
+})();
+</script>
 </body>
 </html>
