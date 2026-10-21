@@ -85,22 +85,32 @@ function setTheme(value,save){const light=value==='light';root.classList.toggle(
 setTheme(chosen==='light'?'light':'dark',false);theme.addEventListener('click',()=>setTheme(root.classList.contains('light')?'dark':'light',true));
 document.getElementById('year').textContent=new Date().getFullYear();
 function updateWorldClocks(){
-  const now=new Date();
-  let visitorZone='Africa/Lagos';
-  try{visitorZone=Intl.DateTimeFormat().resolvedOptions().timeZone||'Africa/Lagos'}catch(e){}
-  const formats={hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'};
-  const dateOptions={weekday:'long',year:'numeric',month:'short',day:'numeric'};
+  var now=new Date();
+  var visitorZone='Africa/Lagos';
+  try{
+    if(window.Intl&&Intl.DateTimeFormat){
+      visitorZone=Intl.DateTimeFormat().resolvedOptions().timeZone||'Africa/Lagos';
+    }
+  }catch(e){}
   function renderClock(prefix,zone){
-    const timeNode=document.getElementById(prefix+'Clock');
-    const dateNode=document.getElementById(prefix+'Date');
-    const zoneNode=document.getElementById(prefix+'Zone');
+    var timeNode=document.getElementById(prefix+'Clock');
+    var dateNode=document.getElementById(prefix+'Date');
+    var zoneNode=document.getElementById(prefix+'Zone');
+    if(!timeNode||!dateNode||!zoneNode)return;
     try{
-      timeNode.textContent=new Intl.DateTimeFormat('en-GB',{...formats,timeZone:zone}).format(now);
-      dateNode.textContent=new Intl.DateTimeFormat('en-GB',{...dateOptions,timeZone:zone}).format(now);
-      const zoneName=new Intl.DateTimeFormat('en',{timeZone:zone,timeZoneName:'short'}).formatToParts(now).find(part=>part.type==='timeZoneName');
-      zoneNode.textContent=zone+(zoneName?' · '+zoneName.value:'');
+      if(!window.Intl||!Intl.DateTimeFormat)throw new Error('Intl date formatting unavailable');
+      timeNode.textContent=new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false,timeZone:zone}).format(now);
+      dateNode.textContent=new Intl.DateTimeFormat('en-GB',{weekday:'long',year:'numeric',month:'short',day:'numeric',timeZone:zone}).format(now);
+      var zoneName='';
+      try{
+        var parts=new Intl.DateTimeFormat('en',{timeZone:zone,timeZoneName:'short'}).formatToParts(now);
+        for(var i=0;i<parts.length;i++){if(parts[i].type==='timeZoneName'){zoneName=parts[i].value;break;}}
+      }catch(zoneError){}
+      zoneNode.textContent=zone+(zoneName?' · '+zoneName:'');
     }catch(e){
-      timeNode.textContent='Unavailable';dateNode.textContent='Could not read this time zone';zoneNode.textContent=zone;
+      timeNode.textContent='Time unavailable';
+      dateNode.textContent='Your browser could not format this time zone.';
+      zoneNode.textContent=zone;
     }
   }
   renderClock('lagos','Africa/Lagos');
